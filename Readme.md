@@ -83,3 +83,20 @@ docker exec -it demo9 bash
 cat /myvol/state.txt
 
 ```
+# docker-compose up
+```
+docker-compose -f docker-compose.yml up -d
+```
+
+# kubernetes show the node app 
+```
+ docker run -d -p 4000:4000  geoffreysamper/k8s-playground:v1.0
+```
+
+# kubernetes create a deployment 
+```
+kubectl apply -f ./kubernetes/.
+
+kubectl edit deploy k8-playground-webapp
+
+```

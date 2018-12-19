@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-playground-webapp
+spec:
+  selector: 
+   matchLabels:
+     app: k8-playground       
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        # Apply this label to pods and default
+        app: k8-playground
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: webapp-container
+          image: index.docker.io/geoffreysamper/k8s-playground:v1.0
+          imagePullPolicy: Always
+          ports: 
+            - containerPort: 4000

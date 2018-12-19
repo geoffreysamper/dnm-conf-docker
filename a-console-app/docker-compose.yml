@@ -1,0 +1,15 @@
+version: '3'
+services:
+  redis: # docker run --name redis-store -p 6379:6379 redis:alpine
+    container_name: redis-store
+    image: "redis:alpine"
+    ports: 
+      - 6379:6379
+  elasticsearch: # docker run --name elastic-store -p 9200:9200 -p 9300:9300 -e 'discovery.type=single-node' elasticsearch:5-alpine
+    container_name: elastic-store
+    image: "elasticsearch:5-alpine"
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment: 
+      discovery.type: single-node
