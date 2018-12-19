@@ -1,10 +1,12 @@
 
 
-#run rabbitmq
+## run rabbitmq
+```
 docker run --name some-rabbit  rabbitmq:3-management
+```
 
 
-#first build demo
+## first build demo
 ```
 docker run demo1-console-app
 
@@ -12,45 +14,45 @@ docker build . -t demo1-console-app -f Dockerfile
 docker images
 ```
 
-#multi stage demo
+## multi stage demo
 ```
 docker build . -t demo2-console-app -f Dockerfile.multi
 docker images
 ```
 
 
-# demo layering 
+## demo layering 
 ```
 docker build . -f Dockerfile.layers  -t demo3-console-app
 dive demo3-console-app
 ```
 
-# demo layering solution
+## demo layering solution
 ```
 docker build . -f Dockerfile.layerssol  -t demo4-console-app
 dive demo4-console-app
 ```
 
-# demo dotnet on alpine
+## demo dotnet on alpine
 ```
 docker build . -f Dockerfile.alpine  -t demo5-console-app
 dive demo4-console-app
 ```
 
-# demo update to dotnet 2.2
+## demo update to dotnet 2.2
 ```
 docker build . -f Dockerfile-2.2 -t demo-console-6
 ```
 
 
-# demo push and tag
+## demo push and tag
 ```
 docker tag demo-console-6 geoffreysamper/demo-console-6:v1
 docker push geoffreysamper/demo-console-6:v1
 
 ``` 
 
-# demo run a rabbitmq bridge network vs host network
+## demo run a rabbitmq bridge network vs host network
 ```
 # run rabbitmq in bridge
 docker run --hostname my-rabbit --name some-rabbit rabbitmq:3-management
@@ -62,7 +64,7 @@ docker run -d --hostname my-rabbit --name some-rabbit -p 8080:15672 rabbitmq:3-m
 docker run --hostname my-rabbit --network host --name some-rabbit  rabbitmq:3-management 
 ```
 
-# demo Volumes
+## demo Volumes
 ```
 #create volume
 docker volume create myvol
@@ -83,17 +85,17 @@ docker exec -it demo9 bash
 cat /myvol/state.txt
 
 ```
-# docker-compose up
+## docker-compose up
 ```
 docker-compose -f docker-compose.yml up -d
 ```
 
-# kubernetes show the node app 
+## kubernetes show the node app 
 ```
  docker run -d -p 4000:4000  geoffreysamper/k8s-playground:v1.0
 ```
 
-# kubernetes create a deployment 
+## kubernetes create a deployment 
 ```
 kubectl apply -f ./kubernetes/demo1.
 
