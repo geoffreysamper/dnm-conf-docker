@@ -95,7 +95,7 @@ docker-compose -f docker-compose.yml up -d
 
 # kubernetes create a deployment 
 ```
-kubectl apply -f ./kubernetes/.
+kubectl apply -f ./kubernetes/demo1.
 
 kubectl edit deploy k8-playground-webapp
 
