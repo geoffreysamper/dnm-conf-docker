@@ -1,0 +1,7 @@
+FROM microsoft/dotnet:2.1-runtime AS base
+RUN mkdir _demo1 \
+&& mkdir _demo2 \
+&& mkdir _demo3 \
+&& mkdir _demo4 \
+&& mkdir _demo5 
+
