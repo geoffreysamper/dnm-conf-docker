@@ -1,0 +1,24 @@
+FROM microsoft/dotnet:2.1-sdk AS build
+ARG COMMIT_ID
+
+RUN mkdir /src
+WORKDIR /src
+COPY . ./
+
+RUN dotnet publish ./a-console-app.csproj -o /tmp/app/  -c Release
+RUN echo "here commit id >  ${COMMIT_ID} " > "/tmp/app/__v.txt"  
+
+#RUN cat /tmp/app/__v.txt
+
+
+FROM microsoft/dotnet:2.1-runtime AS base
+RUN mkdir /app
+WORKDIR /app
+
+#RUN ls 
+
+COPY --from=build /tmp/app .
+
+ ENTRYPOINT ["dotnet", "a-console-app.dll"]
+ 
+ 

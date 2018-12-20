@@ -19,7 +19,10 @@ docker images
 docker build . -t demo2-console-app -f Dockerfile.multi
 docker images
 ```
-
+## demo update to dotnet 2.2
+```
+docker build . -f Dockerfile-2.2 -t demo-console-6
+```
 
 ## demo layering 
 ```
@@ -39,9 +42,9 @@ docker build . -f Dockerfile.alpine  -t demo5-console-app
 dive demo4-console-app
 ```
 
-## demo update to dotnet 2.2
-```
-docker build . -f Dockerfile-2.2 -t demo-console-6
+## demo arround build-args
+``` 
+docker build . -f Dockerfile.buildargs --build-arg COMMIT_ID=21a3fda -t demo7-console-app
 ```
 
 

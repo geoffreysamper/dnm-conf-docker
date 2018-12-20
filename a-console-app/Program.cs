@@ -12,7 +12,7 @@ namespace a_console_app
             Console.WriteLine("running on " + vers);
             Console.WriteLine("Hello World!");
             Console.WriteLine("command line arguments:");
-
+            Console.WriteLine("commitid  " + GetCommitId());
 
 
             
@@ -27,6 +27,11 @@ namespace a_console_app
 
             return att.FrameworkName;
         }
-
+        private static string GetCommitId(){
+        if (System.IO.File.Exists("./__v.txt")){
+                return System.IO.File.ReadAllText("./__v.txt");
+        }
+        return "dev-version";
+        }
     }
 }
